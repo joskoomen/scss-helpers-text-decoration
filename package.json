@@ -1,0 +1,28 @@
+{
+    "name": "@joskoomen/scss-helpers-text-decoration",
+    "version": "1.0.0",
+    "description": "Front-end Helpers Package for text-decoration css setting",
+    "main": "src/_index.scss",
+    "author": "Jos Koomen <hello@joskoo.men>",
+    "license": "MIT",
+    "devDependencies": {
+        "@joskoomen/scss-core": "^1.*",
+        "@joskoomen/scss-helpers-text-colors": "^1.*"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:joskoomen/scss-helpers-text-decoration.git"
+    },
+    "keywords": [
+        "core",
+        "boilerplate",
+        "joskoomen",
+        "helpers",
+        "classes",
+        "scss"
+    ],
+    "homepage": "https://github.com/joskoomen/scss-helpers-text-decoration"
+}
