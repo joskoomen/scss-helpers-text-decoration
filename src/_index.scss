@@ -1,0 +1,102 @@
+@charset "UTF-8";
+
+$text-decoration-lines: (underline, overline, line-trough) !default;
+$text-decoration-styles: (solid, wavy, double, dotted, dashed) !default;
+$text-decoration-colors: $text-colors !default;
+
+$helpers-text-decoration-class-prefix: 'txt-d' !default;
+$helpers-text-decoration-lines-class-prefix: 'txt-dl' !default;
+$helpers-text-decoration-styles-class-prefix: 'txt-ds' !default;
+$helpers-text-decoration-colors-class-prefix: 'txt-dc' !default;
+
+@mixin -text-decoration($prefix, $hover) {
+  
+  // xs-txt-d-none or txt-d-none;
+  .#{$prefix}#{$helpers-text-decoration-class-prefix}-none {
+    text-decoration: none;
+  }
+  @if $hover {
+    .#{$prefix}#{$helpers-text-decoration-class-prefix}-hover-none:hover {
+      text-decoration: none;
+    }
+  }
+  
+  // xs-txt-dl-underline or txt-dl-underline
+  @each $line in $text-decoration-lines {
+    .#{$prefix}#{$helpers-text-decoration-lines-class-prefix}-#{$line} {
+      text-decoration-line: $line;
+    }
+    
+    @each $style in $text-decoration-styles {
+      @each $color in $text-decoration-colors {
+        $key: nth($color, 1);
+        $hex: nth($color, 2);
+        
+        // xs-txt-d-underline-solid-white or txt-d-underline-solid-white
+        .#{$prefix}#{$helpers-text-decoration-class-prefix}-#{$line}-#{$style}-#{$key} {
+          text-decoration-line: $line;
+          text-decoration-style: $style;
+          text-decoration-color: $hex;
+        }
+        @if $hover {
+          .#{$prefix}#{$helpers-text-decoration-class-prefix}-hover-#{$line}-#{$style}-#{$key}:hover {
+            text-decoration-line: $line;
+            text-decoration-style: $style;
+            text-decoration-color: $hex;
+          }
+        }
+      }
+    }
+    
+    @if $hover {
+      .#{$prefix}#{$helpers-text-decoration-lines-class-prefix}-hover-#{$line}:hover {
+        text-decoration-line: $line;
+      }
+    }
+  }
+  
+  // xs-txt-ds-solid or txt-ds-solid
+  @each $style in $text-decoration-styles {
+    .#{$prefix}#{$helpers-text-decoration-styles-class-prefix}-#{$style} {
+      text-decoration-style: $style;
+    }
+    @if $hover {
+      .#{$prefix}#{$helpers-text-decoration-styles-class-prefix}-hover-#{$style}:hover {
+        text-decoration-style: $style;
+      }
+    }
+  }
+  
+  // .xs-txt-dc-primary or .txt-dc-primary
+  @each $color in $text-decoration-colors {
+    $key: nth($color, 1);
+    $hex: nth($color, 2);
+    
+    .#{$prefix}#{$helpers-text-decoration-colors-class-prefix}-#{$key} {
+      text-decoration-color: $hex;
+    }
+    @if $hover {
+      .#{$prefix}#{$helpers-text-decoration-colors-class-prefix}-hover-#{$key}:hover {
+        text-decoration-color: $hex;
+      }
+    }
+    
+  }
+  
+  
+}
+
+@mixin helpers-text-decoration($responsive: false, $hover: false) {
+  
+  @if $responsive {
+    @each $classname in $breakpoint-classes {
+      
+      @include breakpoint($classname) {
+        @include -text-decoration('#{$classname}-', $hover);
+      }
+      
+    }
+  } @else {
+    @include -text-decoration('', $hover);
+  }
+}
