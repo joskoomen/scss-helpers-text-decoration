@@ -1,6 +1,6 @@
 {
     "name": "@joskoomen/scss-helpers-text-decoration",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Front-end Helpers Package for text-decoration css setting",
     "main": "src/_index.scss",
     "author": "Jos Koomen <hello@joskoo.men>",
