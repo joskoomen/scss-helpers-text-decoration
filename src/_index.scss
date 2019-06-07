@@ -13,18 +13,18 @@ $helpers-text-decoration-colors-class-prefix: 'txt-dc' !default;
   
   // xs-txt-d-none or txt-d-none;
   .#{$prefix}#{$helpers-text-decoration-class-prefix}-none {
-    text-decoration: none;
+    text-decoration: none !important;
   }
   @if $hover {
     .#{$prefix}#{$helpers-text-decoration-class-prefix}-hover-none:hover {
-      text-decoration: none;
+      text-decoration: none !important;
     }
   }
   
   // xs-txt-dl-underline or txt-dl-underline
   @each $line in $text-decoration-lines {
     .#{$prefix}#{$helpers-text-decoration-lines-class-prefix}-#{$line} {
-      text-decoration-line: $line;
+      text-decoration-line: $line !important;
     }
     
     @each $style in $text-decoration-styles {
@@ -34,15 +34,15 @@ $helpers-text-decoration-colors-class-prefix: 'txt-dc' !default;
         
         // xs-txt-d-underline-solid-white or txt-d-underline-solid-white
         .#{$prefix}#{$helpers-text-decoration-class-prefix}-#{$line}-#{$style}-#{$key} {
-          text-decoration-line: $line;
-          text-decoration-style: $style;
-          text-decoration-color: $hex;
+          text-decoration-line: $line !important;
+          text-decoration-style: $style !important;
+          text-decoration-color: $hex !important;
         }
         @if $hover {
           .#{$prefix}#{$helpers-text-decoration-class-prefix}-hover-#{$line}-#{$style}-#{$key}:hover {
-            text-decoration-line: $line;
-            text-decoration-style: $style;
-            text-decoration-color: $hex;
+            text-decoration-line: $line !important;
+            text-decoration-style: $style !important;
+            text-decoration-color: $hex !important;
           }
         }
       }
@@ -50,7 +50,7 @@ $helpers-text-decoration-colors-class-prefix: 'txt-dc' !default;
     
     @if $hover {
       .#{$prefix}#{$helpers-text-decoration-lines-class-prefix}-hover-#{$line}:hover {
-        text-decoration-line: $line;
+        text-decoration-line: $line !important;
       }
     }
   }
@@ -58,11 +58,11 @@ $helpers-text-decoration-colors-class-prefix: 'txt-dc' !default;
   // xs-txt-ds-solid or txt-ds-solid
   @each $style in $text-decoration-styles {
     .#{$prefix}#{$helpers-text-decoration-styles-class-prefix}-#{$style} {
-      text-decoration-style: $style;
+      text-decoration-style: $style !important;
     }
     @if $hover {
       .#{$prefix}#{$helpers-text-decoration-styles-class-prefix}-hover-#{$style}:hover {
-        text-decoration-style: $style;
+        text-decoration-style: $style !important;
       }
     }
   }
@@ -73,11 +73,11 @@ $helpers-text-decoration-colors-class-prefix: 'txt-dc' !default;
     $hex: nth($color, 2);
     
     .#{$prefix}#{$helpers-text-decoration-colors-class-prefix}-#{$key} {
-      text-decoration-color: $hex;
+      text-decoration-color: $hex !important;
     }
     @if $hover {
       .#{$prefix}#{$helpers-text-decoration-colors-class-prefix}-hover-#{$key}:hover {
-        text-decoration-color: $hex;
+        text-decoration-color: $hex !important;
       }
     }
     
